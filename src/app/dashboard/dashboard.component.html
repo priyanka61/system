@@ -1,0 +1,133 @@
+ <ul class="nav justify-content-end">
+    <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+    </li>
+    <li class="nav-item">
+            <a class="nav-link" routerLink="">Logout</a>
+    </li>
+    <li class="nav-item">
+                <a class="nav-link" routerLink="/dasboard">Dashboard</a>
+    </li>
+  </ul>
+    <br>
+<!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+   ADD
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 1000px;" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Sports Records</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="row">
+                    <div class="col-md-2">  
+                        <label>Tournment<br> Type</label>
+                    </div>
+                    <div class="col">
+                        <select class="custom-select my-1 mr-sm-2"  name="tournment"  [(ngModel)]="formDetails.tournment" name="tournment">
+                          <option selected></option>
+                          <option value="International">International</option>
+                          <option value="National">National</option>
+                          <option value="State">State</option>
+                          <option value="District">District</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">  
+                        <label>Sports</label>
+                    </div>
+                    <div class="col">
+                        <select class="custom-select my-1 mr-sm-2"  name="sports"  [(ngModel)]="formDetails.sports" name="sports">
+                              <option selected></option>
+                              <option value="ARCHERY">ARCHERY</option>
+                              <option value="ATHLETICS">ATHLETICS</option>
+                              <option value="BADMINTON">BADMINTON</option>
+                              <option value="BASKETBALL">BASKETBALL</option>
+                              <option value="BOXING">BOXING</option>
+                              <option value="CHESS">CHESS</option>
+                              <option value="CRICKET">CRICKET</option>
+                              <option value="CYCLING">CYCLING</option>
+                              <option value="FENCING">FENCING</option>
+                              <option value="FOOTBALL">FOOTBALL</option>
+                              <option value="GYMNASTICS">GYMNASTICS</option>
+                              <option value="HANDBALL">HANDBALL</option>
+                              <option value="HOCKEY">HOCKEY</option>
+                              <option value="JUDO">JUDO</option>
+                              <option value="KABADDI">KABADDI</option>
+                              <option value="KHO-KHO">KHO-KHO</option>
+                              <option value="LAWN TENNIS">LAWN TENNIS</option>
+                              <option value="NET BALL">NET BALL</option>
+                              <option value="PISTOL SHOOTING">PISTOL SHOOTING</option>
+                              <option value="RIFLE SHOOTING">RIFLE SHOOTING</option>
+                              <option value="SWIMMING">SWIMMING</option>
+                              <option value="TABLE TENNIS">TABLE TENNIS</option>
+                              <option value="TAEKWONDO">TAEKWONDO</option>
+                              <option value="VOLLEYBALL">VOLLEYBALL</option>
+                              <option value="WEIGHT LIFTING">WEIGHT LIFTING</option>
+                              <option value="WRESTLING">WRESTLING</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">  
+                            <label>Events</label>
+                    </div>
+                    <div class="col">
+                            <input type="text" name="event" class="form-control" placeholder="Events" [(ngModel)]="formDetails.events" name="events">
+                    </div>
+                </div>
+                <div class="row">
+                      
+                        <div class="col-md-2">
+                                <label>Records<br><span style="color: transparent">..</span></label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Record" [(ngModel)]="formDetails.records" name="record">
+                        </div>
+                        <div class="col-md-2">  
+                                <label>Record Holder</label>
+                        </div>
+                        <div class="col">
+                                <input type="text" name="event" class="form-control" placeholder="Record Holder" [(ngModel)]="formDetails.recordHolder" name="event">
+                        </div>
+                        <div class="col-md-2">
+                                <label>Date</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Date" [(ngModel)]="formDetails.date" name="date">
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-2">  
+                                <label>Championships</label>
+                        </div>
+                        <div class="col">
+                                <input type="text" name="event" class="form-control" [(ngModel)]="formDetails.championships" placeholder="Championships" name="Championships">
+                        </div>
+                        <div class="col-md-2">
+                                <label>Place</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" [(ngModel)]="formDetails.place" name="place" placeholder="Place">
+                        </div>
+                        <div class="col-md-2">
+                                <label>Nationality</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" [(ngModel)]="formDetails.nationality" name="nationality" placeholder="Nationality">
+                        </div>
+                </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" (click)="add(formDetails)">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
