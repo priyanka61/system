@@ -10,34 +10,44 @@ export class DashboardComponent implements OnInit {
   formDetails={
     tournment:"",
     sports:"",
-    events:"",
-    records:"",
-    recordHolder:"",
-    date:"",
-    championships:"",
-    place:"",
-    nationality:""
+    country:"",
+    state:"",
+    district:"",
+    tName:"",
+    description:""
    }
-
+records = [];
   constructor(private formService:FormService) { }
 
 
   ngOnInit() {
+    this.list();
+  }
+
+  list(){
+    this.formService.list().subscribe ((data)=>{
+      console.log('subscribed',JSON.stringify(data))
+  this.records=data['record'];
+  
+    });
   }
 add(a){
-  console.log(this.formService.formDetailsS);
+  // console.log(this.formService.formDetailsS);
   this.formDetails={
     tournment:a.tournment,
     sports:a.sports,
-    events:a.events,
-    records:a.records,
-    recordHolder:a.recordHolder,
-    date:a.date,
-    championships:a.championships,
-    place:a.place,
-    nationality:a.nationality
+    country:a.country,
+    state:a.state,
+    district:a.district,
+    tName:a.tName,
+    description:a.description
   }
-  alert('addded');
-  this.formService.addFormService(this.formDetails);
+  this.formService.addFormService(this.formDetails).subscribe ((data)=>{
+    console.log('subscribed',JSON.stringify(data))
+this.list();
+
+  });
+  // alert('addded');
+  // this.formService.addFormService(this.formDetails)
 }
 }
